@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "28606006-cc76-4b3b-bda4-0b4dfb8e6f55",
+		"name": "Coronavirus API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Datos Actualizados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76e15585-46a7-4a73-9c14-33ef4258373d",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/summary/latest",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"summary",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Búsqueda por region y sub area",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c514efeb-9051-40b8-81a9-16baf25403dc",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/summary/region?region=us&sub_areas=1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"summary",
+						"region"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "us"
+						},
+						{
+							"key": "sub_areas",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Búsqueda por region error mx",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53195df2-5455-4228-8f89-156083ab843d",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/summary/region?region=mx",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"summary",
+						"region"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "mx"
+						},
+						{
+							"key": "sub_area",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Búsqueda por region mx",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32c89f80-2d8c-4747-a434-61f0048ea9cd",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/summary/region?region=mexico",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"summary",
+						"region"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "mexico"
+						},
+						{
+							"key": "sub_area",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Búsqueda por region brazil",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6ff4382-f0a6-4c02-8481-4ad93ef4c1d8",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/summary/region?region=brazil",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"summary",
+						"region"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "brazil"
+						},
+						{
+							"key": "sub_area",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos diarios por región",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92c4ef72-ec99-45aa-9618-f7355172194c",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/spots/day?region=mexico",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"spots",
+						"day"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "mexico"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos semanales por región",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "397dc978-1356-4feb-8dcc-adabe2ceefdb",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/spots/week?region=russia",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"spots",
+						"week"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "russia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos mensuales por región",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbe69d8f-b01c-45b2-82f8-97386c95821c",
+						"exec": [
+							"pm.test(\"Probar estado\",function(){",
+							"    //prueba",
+							"    pm.response.to.be.ok; //Es un estatus 200",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"",
+							"console.log(pm.response);",
+							"console.log(pm.response.code);",
+							"console.log(pm.response.status);",
+							"console.log(pm.response.responseTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.quarantine.country/api/v1/spots/month?region=australia",
+					"protocol": "https",
+					"host": [
+						"api",
+						"quarantine",
+						"country"
+					],
+					"path": [
+						"api",
+						"v1",
+						"spots",
+						"month"
+					],
+					"query": [
+						{
+							"key": "region",
+							"value": "australia"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

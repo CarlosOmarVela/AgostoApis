@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "689cffa2-c046-4f56-8cd6-342852d014f2",
+		"name": "Practica 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lista de usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "02f3c81a-469f-4f5c-8c83-40347d463a25",
+						"exec": [
+							"pm.test(\"Probar estado de respuesta\",function(){",
+							"    //prueba",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=3",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "busqueda de usuarios error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3eb325a3-b84a-4b9e-a9ff-610c002b758d",
+						"exec": [
+							"pm.test(\"Probar estado de respuesta\",function(){",
+							"    //prueba",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"pm.test(\"Tiempo de respuesta menor a 400ms\",function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(400)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/6123123412341234",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"6123123412341234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9192c5e9-1217-4da8-811a-5f836f6f5a7d",
+						"exec": [
+							"pm.test(\"Probar estado de respuesta\",function(){",
+							"    //prueba",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"pm.test(\"Tiempo de respuesta menor a 500ms\",function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(400)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"morpheus\",\n    \"job\": \"leader\",\n    \"last_name\": \"lawson\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdfeeacb-4f9f-40ab-ab63-f7af5d639b11",
+						"exec": [
+							"pm.test(\"Probar estado de respuesta\",function(){",
+							"    //prueba",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Probar response no vacio\",function(){",
+							"    pm.response.to.be.withBody;",
+							"});",
+							"pm.test(\"Tiempo de respuesta menor a 400ms\",function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(400)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2132ebc-2bc6-47ba-9bd2-8357b56724d7",
+						"exec": [
+							"pm.test(\"Probar estado de respuesta\",function(){",
+							"    //prueba",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"pm.test(\"Tiempo de respuesta menor a 300ms\",function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(300)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/618",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"618"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

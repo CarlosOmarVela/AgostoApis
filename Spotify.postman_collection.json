@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "24d7e24d-bcb0-4c77-a9af-398a44ce235c",
+		"name": "Spotify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Info usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60985823-296c-46c7-b685-92dfa027caaf",
+						"exec": [
+							"pm.test(\"Validar estatus\",function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"Validar respuesta Json\",function(){",
+							"    pm.response.to.be.json",
+							"})",
+							"pm.test(\"Validacion body contiene email del usuario\",function(){",
+							"    pm.expect(pm.response.text()).to.deep.include(\"email\")//Valida el objeto igual",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url_base}}/v1/me",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v1",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playlist individual",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e94be0a8-7d46-4c78-b744-1073e8dc54e6",
+						"exec": [
+							"pm.test(\"Validar estatus\",function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"Validar respuesta Json\",function(){",
+							"    pm.response.to.be.json",
+							"})",
+							"pm.test(\"Validacion body contiene nombre del usuario\",function(){",
+							"    pm.expect(pm.response.text()).to.deep.include(\"display_name\")//Valida el objeto igual",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url_base}}/v1/me/playlists",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v1",
+						"me",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playlist de usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "59e58969-8b63-4aab-a761-eed701d3da67",
+						"exec": [
+							"pm.test(\"Validar estatus\",function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"Validar respuesta Json\",function(){",
+							"    pm.response.to.be.json",
+							"})",
+							"pm.test(\"Validacion body contiene nombre del usuario\",function(){",
+							"    pm.expect(pm.response.text()).to.deep.include(\"display_name\")//Valida el objeto igual",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url_base}}/v1/users/1115523795",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"1115523795"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info de playlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f78c844-b516-4759-a295-b34898ae0638",
+						"exec": [
+							"pm.test(\"Validar estatus\",function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"Validar respuesta Json\",function(){",
+							"    pm.response.to.be.json",
+							"})",
+							"pm.test(\"Validacion body contiene id del usuario\",function(){",
+							"    pm.expect(pm.response.text()).to.deep.include(\"id\")//Valida el objeto igual",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url_base}}/v1/playlists/6WhgkETb0XdznvRuAmA9Ej/tracks",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v1",
+						"playlists",
+						"6WhgkETb0XdznvRuAmA9Ej",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info Track",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf062d21-d6f9-4604-ba37-07467396f882",
+						"exec": [
+							"pm.test(\"Validar estatus\",function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"Validar respuesta Json\",function(){",
+							"    pm.response.to.be.json",
+							"})",
+							"pm.test(\"Validacion body contiene nombre del artista\",function(){",
+							"    pm.expect(pm.response.text()).to.deep.include(\"name\")//Valida el objeto igual",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url_base}}/v1/tracks?ids=2lnzGkdtDj5mtlcOW2yRtG,5BSclXJTa9B0iURhUjZo50,0Gx4VrHzS7pZOEAGrmXXBH,6mICuAdrwEjh6Y6lroV2Kg,2Cd9iWfcOpGDHLz6tVA3G4&market=from_token",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v1",
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "2lnzGkdtDj5mtlcOW2yRtG,5BSclXJTa9B0iURhUjZo50,0Gx4VrHzS7pZOEAGrmXXBH,6mICuAdrwEjh6Y6lroV2Kg,2Cd9iWfcOpGDHLz6tVA3G4"
+						},
+						{
+							"key": "market",
+							"value": "from_token"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info Artista",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50a7f416-7fce-4292-8a23-71f10478ea98",
+						"exec": [
+							"pm.test(\"Validar estatus\",function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"Validar respuesta Json\",function(){",
+							"    pm.response.to.be.json",
+							"})",
+							"pm.test(\"Validacion body contiene id\",function(){",
+							"    pm.expect(pm.response.text()).to.deep.include(\"id\")//Valida el objeto igual",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BQB-Rz_3Sco3jmjTp3kRcNdK8-FtG5TJZGftUzNVU4WMB8Ab_MT6GyBiSE0JoIVBsT6X-3-1uHYmqbBM44NH8l-qM-jt909yPfY4A5VaRUUR2faKMi8U_G873STBFCZC5napJqCDftWQwBNqHVlxFuBlKihgSMdIJf2TwVHJ-lUlaR3t-nTTwpgp2gzLoLLMxq-y4SgKQOS7C6meSZ3V0B5sCMU0ai2IJ0YJhSWxkCo6wOC16sa7onUoFwEta9zutNQB24qAxHCAc5KzYGTRURc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url_base}}/v1/artists/0EmeFodog0BfCgMzAIvKQp",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v1",
+						"artists",
+						"0EmeFodog0BfCgMzAIvKQp"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
